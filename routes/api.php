@@ -27,7 +27,7 @@ use App\Http\Controllers\Api\ApiController;
 //     return $request->user();
 // });
 Route::post('login', [UserController::class,'login']);
-Route::post('register', [UserController::class,'register']);
+// Route::post('register', [UserController::class,'register']);
 // provinsi
 Route::get('provinsi',[ ApiController::class,'provinsi']);
 Route::get('provinsi/{id}',[ ApiController::class,'getprovinsi']);
