@@ -17,6 +17,10 @@ class TrackingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $messeges = [
+        'id_rw.numeric' => 'Id Rw hanya boleh berupa Angka',
+        'positif.numeric' => 'Input Positif hanya boleh berupa Angka',
+        'sembuh.numeric' => 'Input Sembuh hanya boleh berupa Angka',
+        'meninggal.numeric' => 'Input Meninggal hanya boleh berupa Angka',
         'id_rw.required'=>'rw tidak boleh kosong',
         'id_rw.max'=>'rw tidak boleh lebih dari 2 karakter',
         'id_rw.unique'=>'data di rw ini sudah ada',
@@ -52,9 +56,9 @@ class TrackingController extends Controller
     {
         $rules = [
             'id_rw' => 'required|unique:trackings|max:2',
-            'positif'=>'required',
-            'sembuh'=>'required',
-            'meninggal'=>'required',
+            'positif'=>'required|numeric',
+            'sembuh'=>'required|numeric',
+            'meninggal'=>'required|numeric',
             'tgl'=>'required',
         ];
        
@@ -129,9 +133,9 @@ class TrackingController extends Controller
     {
         $rules = [
             'id_rw' => 'required|max:2',
-            'positif'=>'required',
-            'sembuh'=>'required',
-            'meninggal'=>'required',
+            'positif'=>'required|numeric',
+            'sembuh'=>'required|numeric',
+            'meninggal'=>'required|numeric',
             'tgl'=>'required',
         ];
        

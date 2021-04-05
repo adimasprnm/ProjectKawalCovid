@@ -16,6 +16,7 @@ class KelurahanController extends Controller
     public $messeges = [
         'nama_kel.required'=>'nama kelurahan tidak boleh kosong',
         'id.required'=>'id kelurahan tidak boleh kosong',
+        'nama_kel.alpha'=>'Nama Kelurahan Hanya boleh berupa Huruf',
         'nama_kel.unique'=>'nama kelurahan sudah ada',
         'id.unique'=>'id kelurahan sudah ada',
         'id_kec.required'=>'pilih kecamatan terlebih dahulu',

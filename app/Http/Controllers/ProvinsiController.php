@@ -13,9 +13,11 @@ class ProvinsiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $messeges = [
+        'kode_prov.numeric' => 'Kode provinsi hanya boleh berupa angka',
         'kode_prov.required'=>'kode provinsi tidak boleh kosong',
         'kode_prov.max'=>'kode provinsi tidak boleh lebih dari 4 karakter',
         'nama_prov.required'=>'nama provinsi tidak boleh kosong',
+        'nama_prov.alpha'=>'Nama Provinsi Hanya boleh berupa huruf',
         'kode_prov.unique'=>'kode provinsi sudah ada',
         'nama_prov.unique'=>'nama provinsi sudah ada',
     ];
@@ -44,8 +46,8 @@ class ProvinsiController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'kode_prov' => 'required|unique:provinsis|max:4',
-            'nama_prov' => 'required|unique:provinsis',
+            'kode_prov' => 'required|unique:provinsis|max:4|numeric',
+            'nama_prov' => 'required|unique:provinsis|alpha',
         ];
        
         $this->validate($request,$rules,$this->messeges);
@@ -89,8 +91,8 @@ class ProvinsiController extends Controller
     public function update(Request $request,  $id)
     {
         $rules = [
-            'kode_prov' => 'required|max:4',
-            'nama_prov' => 'required',
+            'kode_prov' => 'required|max:4|numeric',
+            'nama_prov' => 'required|alpha',
         ];
        
         $this->validate($request,$rules,$this->messeges);

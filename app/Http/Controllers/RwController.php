@@ -14,6 +14,7 @@ class RwController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $messeges = [
+        'no_rw.numeric' => 'No rw hanya boleh berupa angka',
         'no_rw.required'=>'no rw tidak boleh kosong',
         'no_rw.max'=>'no rw masimal 2 karakter',
         'id_kel.required'=>'pilih kelurahan terlebih dahulu',
@@ -45,7 +46,7 @@ class RwController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'no_rw' => 'required|max:2',
+            'no_rw' => 'required|max:2|numeric',
             'id_kel' => 'required',
         ];
        
@@ -91,7 +92,7 @@ class RwController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'no_rw' => 'required|max:2',
+            'no_rw' => 'required|max:2|numeric',
             'id_kel' => 'required',
         ];
        

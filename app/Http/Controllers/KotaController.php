@@ -15,9 +15,11 @@ class KotaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $messeges = [
+        'kode_kot.numeric'=>'kode kota hanya boleh berupa angka',
         'kode_kot.required'=>'kode kota tidak boleh kosong',
         'kode_kot.max'=>'kode provinsi tidak boleh lebih dari 4 karakter',
         'nama_kot.required'=>'nama kota tidak boleh kosong',
+        'nama_kot.alpha'=>'nama kota hanya boleh berupa huruf',
         'id_prov.required'=>'pilih provinsi terlebih dahulu',
         'kode_kot.unique'=>'kode kota sudah ada',
         'nama_kot.unique'=>'nama kota sudah ada',
@@ -49,8 +51,8 @@ class KotaController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'kode_kot' => 'required|unique:kotas|max:4',
-            'nama_kot' => 'required|unique:kotas',
+            'kode_kot' => 'required|unique:kotas|max:4|numeric',
+            'nama_kot' => 'required|unique:kotas|alpha',
             'id_prov' => 'required',
         ];
        
@@ -97,8 +99,8 @@ class KotaController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'kode_kot' => 'required|max:4',
-            'nama_kot' => 'required',
+            'kode_kot' => 'required|max:4|numeric',
+            'nama_kot' => 'required|alpha',
             'id_prov' => 'required',
         ];
        
